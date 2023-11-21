@@ -1,0 +1,61 @@
+# sebelumnnya install dulu beberapa modules ini ya:
+
+import numpy as np
+import matplotlib.pyplot as plt             #-- untuk visualisasi grafik dasarnya 
+from mpl_toolkits.mplot3d import Axes3D     #-- untuk visualisasi #D nya
+
+
+a = np.array([1, 2])
+b = np.array([2, 1])
+
+# Visualisasi vektor a
+plt.quiver(0, 0, a[0], a[1], angles='xy', scale_units='xy', scale=1, color='r', label='a')
+
+# Visualisasi vektor b
+plt.quiver(0, 0, b[0], b[1], angles='xy', scale_units='xy', scale=1, color='b', label='b')
+
+# Visualisasi hasil a.b
+plt.quiver(np.dot(a, b), 0, angles='xy', scale_units='xy', scale=1, color='c', label='d')
+
+plt.xlim(0, 5)
+plt.ylim(0, 5)
+plt.axhline(0, color='black',linewidth=0.5)
+plt.axvline(0, color='black',linewidth=0.5)
+plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+plt.legend()
+plt.title("Visualisasi Dot Product")
+plt.show()
+
+# Cross Product
+
+# Vektor a dan b
+a = np.array([2, 3, 1])
+b = np.array([4, 1, 2])
+
+# Cross product a x b
+c = np.cross(a, b)
+
+# Visualisasi vektor a, b, dan hasil cross product c
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# Vektor a
+ax.quiver(0, 0, 0, a[0], a[1], a[2], color='r', label='a')
+
+# Vektor b
+ax.quiver(0, 0, 0, b[0], b[1], b[2], color='b', label='b')
+
+# Hasil cross product c
+ax.quiver(0, 0, 0, c[0], c[1], c[2], color='g', label='a x b')
+
+ax.set_xlim([0, 5])
+ax.set_ylim([0, 5])
+ax.set_zlim([0, 5])
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.legend()
+
+plt.title("Visualisasi Cross Product")
+plt.show()
+
